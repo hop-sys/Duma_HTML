@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Retirement Planning Training</title>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+
+        /* =========================
+           GENERAL STYLING
+        ========================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "DM Sans", sans-serif;
+            background: #e8e0d2;
+            color: #263238;
+            padding: 40px 20px;
+        }
+
+
+        /* =========================
+           POSTER
+        ========================== */
+
+        .poster {
+            width: 900px;
+            max-width: 100%;
+            margin: auto;
+            background: #fffdf8;
+            overflow: hidden;
+            border-radius: 22px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.18);
+        }
+
+
+        /* =========================
+           HEADER
+        ========================== */
+
+        .hero {
+            position: relative;
+            padding: 65px 65px 55px;
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(38, 82, 74, 0.97),
+                    rgba(25, 57, 53, 0.98)
+                );
+            color: white;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            border: 50px solid rgba(210, 169, 88, 0.15);
+            border-radius: 50%;
+            right: -100px;
+            top: -100px;
+        }
+
+        .hero::after {
+            content: "";
+            position: absolute;
+            width: 180px;
+            height: 180px;
+            border: 35px solid rgba(255, 255, 255, 0.06);
+            border-radius: 50%;
+            left: -80px;
+            bottom: -100px;
+        }
+
+        .brand {
+            position: relative;
+            z-index: 2;
+            font-size: 15px;
+            letter-spacing: 3px;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: #e4c477;
+            margin-bottom: 25px;
+        }
+
+        .hero h1 {
+            position: relative;
+            z-index: 2;
+            font-family: "Playfair Display", serif;
+            font-size: 55px;
+            line-height: 1.05;
+            max-width: 700px;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 span {
+            color: #e4c477;
+        }
+
+        .tagline {
+            position: relative;
+            z-index: 2;
+            font-size: 21px;
+            line-height: 1.5;
+            max-width: 620px;
+            color: #f2f2ef;
+        }
+
+
+        /* =========================
+           INTRO
+        ========================== */
+
+        .intro {
+            padding: 40px 65px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 35px;
+            align-items: center;
+            border-bottom: 1px solid #eee5d8;
+        }
+
+        .intro-text h2 {
+            font-family: "Playfair Display", serif;
+            font-size: 29px;
+            color: #26524a;
+            margin-bottom: 12px;
+        }
+
+        .intro-text p {
+            line-height: 1.7;
+            font-size: 15px;
+            color: #59615f;
+        }
+
+        .highlight {
+            background: #f4ead5;
+            border-left: 5px solid #d2a958;
+            padding: 25px;
+            border-radius: 0 14px 14px 0;
+        }
+
+        .highlight strong {
+            display: block;
+            color: #26524a;
+            font-size: 18px;
+            margin-bottom: 7px;
+        }
+
+        .highlight p {
+            font-size: 14px;
+            line-height: 1.6;
+            color: #5c625f;
+        }
+
+
+        /* =========================
+           TRAINING AREAS
+        ========================== */
+
+        .content {
+            padding: 45px 65px;
+        }
+
+        .section-heading {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .section-heading h2 {
+            font-family: "Playfair Display", serif;
+            font-size: 34px;
+            color: #26524a;
+            margin-bottom: 8px;
+        }
+
+        .section-heading p {
+            color: #777;
+            font-size: 14px;
+        }
+
+        .topics {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 18px;
+        }
+
+        .topic {
+            position: relative;
+            background: #ffffff;
+            border: 1px solid #e7dfd2;
+            border-radius: 16px;
+            padding: 24px;
+            transition: 0.3s ease;
+        }
+
+        .topic:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+        }
+
+        .topic-number {
+            position: absolute;
+            right: 20px;
+            top: 17px;
+            font-size: 13px;
+            font-weight: 700;
+            color: #d2a958;
+        }
+
+        .topic-icon {
+            width: 45px;
+            height: 45px;
+            border-radius: 12px;
+            background: #edf4f1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            margin-bottom: 15px;
+        }
+
+        .topic h3 {
+            color: #26524a;
+            font-size: 18px;
+            margin-bottom: 12px;
+        }
+
+        .topic ul {
+            list-style: none;
+        }
+
+        .topic li {
+            position: relative;
+            padding-left: 17px;
+            margin-bottom: 7px;
+            font-size: 13px;
+            line-height: 1.45;
+            color: #606765;
+        }
+
+        .topic li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #d2a958;
+            font-weight: bold;
+        }
+
+
+        /* =========================
+           CTA
+        ========================== */
+
+        .cta {
+            margin: 5px 65px 45px;
+            padding: 35px;
+            border-radius: 18px;
+            background: #26524a;
+            color: white;
+            text-align: center;
+        }
+
+        .cta h2 {
+            font-family: "Playfair Display", serif;
+            font-size: 30px;
+            margin-bottom: 10px;
+        }
+
+        .cta p {
+            font-size: 15px;
+            line-height: 1.6;
+            max-width: 600px;
+            margin: auto;
+            color: #e8eeeb;
+        }
+
+        .cta strong {
+            color: #e4c477;
+        }
+
+
+        /* =========================
+           INFO BAR
+        ========================== */
+
+        .info-bar {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            margin: 0 65px 40px;
+            border: 1px solid #e2d8c9;
+            border-radius: 15px;
+            overflow: hidden;
+        }
+
+        .info {
+            text-align: center;
+            padding: 20px 10px;
+            background: #f8f3e9;
+            border-right: 1px solid #e2d8c9;
+        }
+
+        .info:last-child {
+            border-right: none;
+        }
+
+        .info-label {
+            display: block;
+            text-transform: uppercase;
+            font-size: 11px;
+            letter-spacing: 1.5px;
+            color: #777;
+            margin-bottom: 6px;
+        }
+
+        .info-value {
+            font-weight: 700;
+            font-size: 16px;
+            color: #26524a;
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================== */
+
+        footer {
+            background: #172f2b;
+            color: white;
+            text-align: center;
+            padding: 25px;
+        }
+
+        footer .company {
+            font-size: 17px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+        }
+
+        footer p {
+            font-size: 12px;
+            color: #b9c5c1;
+        }
+
+
+        /* =========================
+           RESPONSIVE
+        ========================== */
+
+        @media (max-width: 700px) {
+
+            body {
+                padding: 10px;
+            }
+
+            .hero {
+                padding: 45px 30px;
+            }
+
+            .hero h1 {
+                font-size: 40px;
+            }
+
+            .tagline {
+                font-size: 17px;
+            }
+
+            .intro {
+                padding: 30px;
+                grid-template-columns: 1fr;
+            }
+
+            .content {
+                padding: 35px 30px;
+            }
+
+            .topics {
+                grid-template-columns: 1fr;
+            }
+
+            .info-bar {
+                margin: 0 30px 30px;
+                grid-template-columns: 1fr;
+            }
+
+            .info {
+                border-right: none;
+                border-bottom: 1px solid #e2d8c9;
+            }
+
+            .info:last-child {
+                border-bottom: none;
+            }
+
+            .cta {
+                margin: 5px 30px 35px;
+            }
+        }
+
+
+        /* =========================
+           PRINT VERSION
+        ========================== */
+
+        @media print {
+
+            body {
+                background: white;
+                padding: 0;
+            }
+
+            .poster {
+                width: 100%;
+                box-shadow: none;
+                border-radius: 0;
+            }
+
+            .topic:hover {
+                transform: none;
+                box-shadow: none;
+            }
+
+            @page {
+                size: A4;
+                margin: 0;
+            }
+
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+    <main class="poster">
+
+        <!-- HERO -->
+        <section class="hero">
+
+            <div class="brand">
+                Valcrest Consultants
+            </div>
+
+            <h1>
+                Retirement<br>
+                Planning <span>Training</span>
+            </h1>
+
+            <p class="tagline">
+                Prepare today for a confident, healthy and financially
+                secure transition into retirement.
+            </p>
+
+        </section>
+
+
+        <!-- INTRO -->
+        <section class="intro">
+
+            <div class="intro-text">
+
+                <h2>
+                    Your next chapter starts with preparation.
+                </h2>
+
+                <p>
+                    Retirement is more than leaving employment.
+                    It is a transition into a new phase of life.
+                    Our practical training equips employees with
+                    knowledge, tools and confidence to navigate
+                    this transition successfully.
+                </p>
+
+            </div>
+
+
+            <div class="highlight">
+
+                <strong>
+                    Practical. Relevant. Action-Oriented.
+                </strong>
+
+                <p>
+                    The programme focuses on real-life situations
+                    and helps participants develop a
+                    <b>Personal Action Plan (PAP)</b> for their
+                    retirement journey.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- TRAINING AREAS -->
+        <section class="content">
+
+            <div class="section-heading">
+
+                <h2>
+                    What You'll Learn
+                </h2>
+
+                <p>
+                    Six key areas designed to prepare employees for life after employment
+                </p>
+
+            </div>
+
+
+            <div class="topics">
+
+
+                <!-- 01 -->
+                <article class="topic">
+
+                    <span class="topic-number">01</span>
+
+                    <div class="topic-icon">🌅</div>
+
+                    <h3>
+                        Separation from Employment
+                    </h3>
+
+                    <ul>
+                        <li>Managing the transition to a new life</li>
+                        <li>Attitude and lifestyle management</li>
+                        <li>Family and support systems</li>
+                        <li>Managing change</li>
+                        <li>Retirement planning</li>
+                    </ul>
+
+                </article>
+
+
+                <!-- 02 -->
+                <article class="topic">
+
+                    <span class="topic-number">02</span>
+
+                    <div class="topic-icon">⏰</div>
+
+                    <h3>
+                        Actions & Time Management
+                    </h3>
+
+                    <ul>
+                        <li>Time scheduling</li>
+                        <li>Activities prioritising</li>
+                        <li>Personal branding</li>
+                        <li>New roles in society and community</li>
+                        <li>Business and volunteer opportunities</li>
+                    </ul>
+
+                </article>
+
+
+                <!-- 03 -->
+                <article class="topic">
+
+                    <span class="topic-number">03</span>
+
+                    <div class="topic-icon">❤️</div>
+
+                    <h3>
+                        Health Is Wealth
+                    </h3>
+
+                    <ul>
+                        <li>Healthy living</li>
+                        <li>Medical cover in retirement</li>
+                        <li>Stress management</li>
+                        <li>Long-term care options</li>
+                    </ul>
+
+                </article>
+
+
+                <!-- 04 -->
+                <article class="topic">
+
+                    <span class="topic-number">04</span>
+
+                    <div class="topic-icon">💰</div>
+
+                    <h3>
+                        Financial Wellness
+                    </h3>
+
+                    <ul>
+                        <li>Sources of retirement income</li>
+                        <li>Budgeting and spending plans</li>
+                        <li>Debt management</li>
+                        <li>Investment options</li>
+                        <li>Assets, liabilities and net worth</li>
+                        <li>Financial goals and tax obligations</li>
+                        <li>Protecting yourself from financial scams</li>
+                    </ul>
+
+                </article>
+
+
+                <!-- 05 -->
+                <article class="topic">
+
+                    <span class="topic-number">05</span>
+
+                    <div class="topic-icon">📈</div>
+
+                    <h3>
+                        Retirement Benefit Options
+                    </h3>
+
+                    <ul>
+                        <li>Lump-sum benefits</li>
+                        <li>Annuities</li>
+                        <li>Income drawdown</li>
+                        <li>Planning and investing retirement funds</li>
+                        <li>Tax implications</li>
+                        <li>Medical cover and support systems</li>
+                    </ul>
+
+                </article>
+
+
+                <!-- 06 -->
+                <article class="topic">
+
+                    <span class="topic-number">06</span>
+
+                    <div class="topic-icon">🏡</div>
+
+                    <h3>
+                        Estate Planning
+                    </h3>
+
+                    <ul>
+                        <li>Choosing a guardian and next of kin</li>
+                        <li>How to write a Will</li>
+                        <li>Understanding family trusts</li>
+                        <li>Providing for dependants and children</li>
+                        <li>Asset protection</li>
+                    </ul>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- CALL TO ACTION -->
+        <section class="cta">
+
+            <h2>
+                Invest in Your Employees' Tomorrow
+            </h2>
+
+            <p>
+                Give your employees more than a retirement package.
+                Give them the <strong>knowledge, confidence and
+                practical tools</strong> to prepare for their next chapter.
+            </p>
+
+        </section>
+
+
+        <!-- PROGRAMME INFORMATION -->
+        <section class="info-bar">
+
+            <div class="info">
+
+                <span class="info-label">
+                    Programme
+                </span>
+
+                <span class="info-value">
+                    2-Day Training
+                </span>
+
+            </div>
+
+
+            <div class="info">
+
+                <span class="info-label">
+                    Delivery
+                </span>
+
+                <span class="info-value">
+                    Physical Training
+                </span>
+
+            </div>
+
+
+            <div class="info">
+
+                <span class="info-label">
+                    Investment
+                </span>
+
+                <span class="info-value">
+                    KSh 1,200,000 + VAT
+                </span>
+
+            </div>
+
+        </section>
+
+
+        <!-- FOOTER -->
+        <footer>
+
+            <div class="company">
+                VALCREST CONSULTANTS
+            </div>
+
+            <p>
+                Retirement Planning Training Programme
+            </p>
+
+        </footer>
+
+    </main>
+
+</body>
+</html>

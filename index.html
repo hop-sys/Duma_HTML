@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Interactive HTML Cat</title>
+<style>
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f8ff;
+  }
+  .cat {
+    position: relative;
+    width: 200px;
+    height: 200px;
+  }
+  /* Ears */
+  .ear {
+    width: 60px;
+    height: 60px;
+    background-color: #5b034c;
+    position: absolute;
+    top: 0;
+    border-radius: 50% 50% 0 0;
+    transform: rotate(45deg);
+  }
+  .ear.right {
+    right: 0;
+    transform: rotate(-45deg);
+  }
+  /* Face */
+  .face {
+    width: 200px;
+    height: 200px;
+    background-color: #410230;
+    border-radius: 50%;
+    position: relative;
+    z-index: 1;
+  }
+  /* Eyes */
+  .eye {
+    width: 30px;
+    height: 30px;
+    background-color: rgb(239, 107, 184);
+    border-radius: 50%;
+    position: absolute;
+    top: 60px;
+    overflow: hidden; /* Keep pupils inside the eye socket */
+  }
+  .eye.left {
+    left: 50px;
+  }
+  .eye.right {
+    right: 50px;
+  }
+  .pupil {
+    width: 15px;
+    height: 15px;
+    background-color: black;
+    border-radius: 50%;
+    position: absolute;
+    top: 7px;
+    left: 7px;
+    transition: transform 0.1s linear; /* Smooth movement */
+  }
+  /* Nose */
+  .nose {
+    width: 20px;
+    height: 15px;
+    background-color: pink;
+    position: absolute;
+    top: 110px;
+    left: 90px;
+    border-radius: 50%;
+  }
+  /* Mouth */
+  .mouth {
+    width: 60px;
+    height: 20px;
+    border-bottom: 3px solid pink;
+    position: absolute;
+    top: 125px;
+    left: 70px;
+    border-radius: 50%;
+  }
+</style>
+</head>
+<body>
+  <div class="cat">
+    <div class="ear left"></div>
+    <div class="ear right"></div>
+    <div class="face">
+      <div class="eye left">
+        <div class="pupil" id="left-pupil"></div>
+      </div>
+      <div class="eye right">
+        <div class="pupil" id="right-pupil"></div>
+      </div>
+      <div class="nose"></div>
+      <div class="mouth"></div>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('mousemove', (event) => {
+      movePupil(document.getElementById('left-pupil'), document.querySelector('.eye.left'), event);
+      movePupil(document.getElementById('right-pupil'), document.querySelector('.eye.right'), event);
+    });
+
+    function movePupil(pupil, eye, event) {
+      // Get the position of the eye relative to the viewport
+      const eyeRect = eye.getBoundingClientRect();
+      const eyeCenterX = eyeRect.left + eyeRect.width / 2;
+      const eyeCenterY = eyeRect.top + eyeRect.height / 2;
+
+      // Calculate angle between mouse position and eye center
+      const angle = Math.atan2(event.clientY - eyeCenterY, event.clientX - eyeCenterX);
+
+      // Determine movement range (constrain pupil within eye)
+      const maxMove = (eyeRect.width - pupil.offsetWidth) / 2 - 2; // Subtract a little padding
+      const moveX = Math.cos(angle) * maxMove;
+      const moveY = Math.sin(angle) * maxMove;
+
+      // Apply movement to the pupil relative to its original center position
+      // Original center is approximately top: 7px, left: 7px within the eye
+      pupil.style.transform = `translate(${moveX}px, ${moveY}px)`;
+    }
+  </script>
+</body>
+</html>

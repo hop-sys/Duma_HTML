@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PROPOSAL FOR THE PROVISION OF HUMAN RESOURCE SERVICES</title>
+<style>
+  :root {
+    /* Color Palette */
+    --primary-teal: #062429;
+    --medium-teal: #0e454f;
+    --accent-teal: #145965;
+    --gold: #d4af37;
+    --light-gold: #f3e5ab;
+    --black: #080c0d;
+    --white: #ffffff;
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    background-color: #121212;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 20px;
+  }
+
+  /* Main Poster Layout */
+  .poster {
+    width: 900px;
+    background-color: var(--primary-teal);
+    position: relative;
+    overflow: hidden;
+    color: var(--white);
+    box-shadow: 0 25px 50px rgba(0,0,0,0.85);
+    display: flex;
+    flex-direction: column;
+    padding: 50px 45px;
+    border: 2px solid var(--gold);
+  }
+
+  /* Decorative Geometric Shapes */
+  .poster::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 350px;
+    height: 250px;
+    background: linear-gradient(135deg, var(--gold) 0%, var(--medium-teal) 100%);
+    clip-path: polygon(100% 0, 0 0, 100% 100%);
+    z-index: 1;
+    opacity: 0.85;
+  }
+
+  .poster::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 14px;
+    background: linear-gradient(90deg, var(--gold) 0%, var(--black) 50%, var(--gold) 100%);
+  }
+
+  /* Header Section */
+  .header {
+    position: relative;
+    z-index: 2;
+    margin-bottom: 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  .submitted-by {
+    font-size: 26px;
+    font-weight: 800;
+    color: var(--white);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  /* Title Box */
+  .title-container {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    margin-bottom: 30px;
+    border-top: 2px solid var(--gold);
+    border-bottom: 2px solid var(--gold);
+    padding: 20px 15px;
+    background: rgba(14, 69, 79, 0.65);
+  }
+
+  .main-title {
+    font-size: 24px;
+    font-weight: 800;
+    color: var(--gold);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    line-height: 1.4;
+    margin-bottom: 8px;
+  }
+
+  .meta-info {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--white);
+  }
+
+  /* Document Content Grid */
+  .content-grid {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  .section-block {
+    background: rgba(8, 12, 13, 0.4);
+    border-radius: 6px;
+    padding: 18px;
+    border: 1px solid rgba(212, 175, 55, 0.25);
+    margin-bottom: 15px;
+  }
+
+  .full-width {
+    grid-column: 1 / -1;
+  }
+
+  .section-heading {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--light-gold);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+    border-bottom: 1px dashed var(--gold);
+    padding-bottom: 4px;
+  }
+
+  .sub-heading {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--gold);
+    margin: 10px 0 5px 0;
+  }
+
+  p {
+    font-size: 12.5px;
+    line-height: 1.5;
+    color: var(--white);
+    margin-bottom: 8px;
+  }
+
+  ul {
+    list-style: none;
+    margin-left: 5px;
+  }
+
+  ul li {
+    font-size: 12px;
+    line-height: 1.5;
+    margin-bottom: 6px;
+    display: flex;
+    align-items: flex-start;
+    color: var(--white);
+  }
+
+  ul li::before {
+    content: "•";
+    color: var(--gold);
+    font-size: 16px;
+    margin-right: 8px;
+    line-height: 1;
+  }
+
+  /* Tables */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    font-size: 12px;
+  }
+
+  th, td {
+    border: 1px solid rgba(212, 175, 55, 0.4);
+    padding: 8px 10px;
+    text-align: left;
+  }
+
+  th {
+    background-color: var(--medium-teal);
+    color: var(--gold);
+  }
+
+  td {
+    background-color: rgba(6, 36, 41, 0.5);
+  }
+
+  /* Footer */
+  .footer {
+    position: relative;
+    z-index: 2;
+    margin-top: 25px;
+    text-align: center;
+    border-top: 1px solid var(--gold);
+    padding-top: 18px;
+    background: linear-gradient(180deg, transparent 0%, var(--black) 100%);
+  }
+
+  .author {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--light-gold);
+    margin-bottom: 3px;
+  }
+
+  .author-company {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--white);
+    margin-bottom: 3px;
+  }
+
+  .contact {
+    font-size: 14px;
+    color: var(--gold);
+    font-weight: 700;
+    letter-spacing: 0.5px;
+  }
+
+  /* Logo Styling */
+/* Header & Branding Layout */
+.header {
+  position: relative;
+  z-index: 2;
+  margin-bottom: 25px;
+  display: flex;
+  align-items: center;
+}
+
+.brand-container {
+  display: flex;
+  align-items: center;
+  gap: 15px; /* Adjust spacing between the logo and text */
+}
+
+.logo {
+  height: 60px; /* Adjust logo height as needed */
+  width: auto;
+  object-fit: contain;
+  border-radius: 4px; /* Optional: rounds corners if logo has a background */
+}
+
+.submitted-by {
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--white);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
+}
+</style>
+</head>
+<body>
+
+<div class="poster">
+  <!-- Header -->
+<div class="header">
+  <div class="brand-container">
+    <img src="Logoo.png" alt="Valcrest Consultants Logo" class="logo">
+    <div class="submitted-by">VALCREST CONSULTANTS</div>
+  </div>
+</div>
+
+  <!-- Title & Meta -->
+  <div class="title-container">
+    <div class="main-title">PROPOSAL FOR THE PROVISION OF HUMAN RESOURCE SERVICES</div>
+    <div class="meta-info">Submitted To: Company XYZ | Date: </div>
+  </div>
+
+  <!-- Grid Content containing all document text verbatim -->
+  <div class="content-grid">
+
+    <!-- Section 1 -->
+    <div class="section-block full-width">
+      <div class="section-heading">1. EXECUTIVE SUMMARY</div>
+      <p>We are pleased to submit this proposal to Company XYZ for the provision of professional Human Resource services.</p>
+      <p>People are one of the most important assets of any organisation. As businesses grow and evolve, effective human resource management becomes critical in attracting and retaining talent, improving employee performance, managing workplace relationships, ensuring compliance and building a strong organisational culture.</p>
+      <p>Our proposed HR support model is designed to provide Company XYZ with practical, strategic and responsive HR solutions without necessarily requiring a full in-house HR function.</p>
+      <p>We will work closely with the Company's leadership and management team to understand its business priorities and provide HR solutions that are aligned with its strategic objectives, operational requirements and organisational culture.</p>
+      <p>Our approach will combine strategic HR advisory, employee lifecycle management, compliance, performance management, talent development and employee engagement to strengthen the Company's people practices and overall organisational effectiveness.</p>
+    </div>
+
+    <!-- Section 2 -->
+    <div class="section-block">
+      <div class="section-heading">2. UNDERSTANDING OF COMPANY XYZ'S HR NEEDS</div>
+      <p>We recognise that organisations require an HR function that goes beyond maintaining employee records and processing routine HR transactions.</p>
+      <p>Company XYZ may require support in areas such as:</p>
+      <ul>
+        <li>Establishing and strengthening HR policies and procedures.</li>
+        <li>Ensuring compliance with applicable employment legislation.</li>
+        <li>Recruiting and retaining the right talent.</li>
+        <li>Developing effective performance management systems.</li>
+        <li>Improving employee engagement and retention.</li>
+        <li>Managing employee relations matters.</li>
+        <li>Developing employees and strengthening leadership capability.</li>
+        <li>Establishing appropriate remuneration and benefits structures.</li>
+        <li>Supporting organisational growth and change.</li>
+        <li>Providing management with professional HR advice.</li>
+        <li>Maintaining accurate and confidential employee records.</li>
+        <li>Developing a positive and productive organisational culture.</li>
+      </ul>
+      <p>Our proposed engagement will therefore be tailored to the Company's specific requirements following an initial HR assessment.</p>
+    </div>
+
+    <!-- Section 3 -->
+    <div class="section-block">
+      <div class="section-heading">3. OBJECTIVES OF THE ENGAGEMENT</div>
+      <p>The key objectives of the proposed HR services are to:</p>
+      <ul>
+        <li>Establish effective and structured HR practices within Company XYZ.</li>
+        <li>Ensure compliance with applicable employment laws and regulations.</li>
+        <li>Support the Company in attracting, developing and retaining talent.</li>
+        <li>Strengthen employee performance and accountability.</li>
+        <li>Improve employee engagement and workplace culture.</li>
+        <li>Provide management with timely and professional HR advice.</li>
+        <li>Reduce people-related risks and improve employee relations.</li>
+        <li>Establish appropriate HR policies, procedures and systems.</li>
+        <li>Support leadership and organisational development.</li>
+        <li>Align people practices with the Company's strategic and operational objectives.</li>
+      </ul>
+    </div>
+
+    <!-- Section 4 -->
+    <div class="section-block full-width">
+      <div class="section-heading">4. PROPOSED HR SERVICES</div>
+      
+      <div class="sub-heading">4.1 HR Audit and Diagnostic Review</div>
+      <p>At the commencement of the engagement, we will undertake an HR review to understand the Company's current people practices, identify gaps and establish priorities.</p>
+      <p>The review may cover:</p>
+      <ul>
+        <li>Employee records and documentation.</li>
+        <li>Employment contracts.</li>
+        <li>HR policies and procedures.</li>
+        <li>Organisation structure.</li>
+        <li>Job descriptions.</li>
+        <li>Recruitment processes.</li>
+        <li>Performance management.</li>
+        <li>Compensation and benefits.</li>
+        <li>Employee relations.</li>
+        <li>Training and development.</li>
+        <li>Statutory and employment compliance.</li>
+        <li>Employee engagement and workplace culture.</li>
+      </ul>
+      <p>A report will be provided highlighting key findings, risks and recommended actions.</p>
+
+      <div class="sub-heading">4.2 HR Policies and Procedures</div>
+      <p>We will develop, review and update HR policies and procedures appropriate to Company XYZ's size, structure and business needs.</p>
+      <p>These may include:</p>
+      <ul>
+        <li>Employee Handbook.</li>
+        <li>Recruitment and Selection Policy.</li>
+        <li>Leave Policy.</li>
+        <li>Performance Management Policy.</li>
+        <li>Learning and Development Policy.</li>
+        <li>Employee Relations Policy.</li>
+        <li>Disciplinary and Grievance Procedures.</li>
+        <li>Code of Conduct.</li>
+        <li>Anti-Harassment and Workplace Behaviour Policy.</li>
+        <li>Remote/Hybrid Work Policy where applicable.</li>
+        <li>Compensation and Benefits Policy.</li>
+        <li>Separation and Exit Procedures.</li>
+        <li>Health, Safety and Employee Welfare provisions.</li>
+      </ul>
+
+      <div class="sub-heading">4.3 Recruitment and Talent Acquisition</div>
+      <p>We will support Company XYZ in attracting and selecting suitable talent through a structured recruitment process.</p>
+      <p>Services may include:</p>
+      <ul>
+        <li>Workforce planning.</li>
+        <li>Job analysis and development of job descriptions.</li>
+        <li>Vacancy profiling.</li>
+        <li>Recruitment strategy.</li>
+        <li>Advertising and candidate sourcing.</li>
+        <li>CV screening and shortlisting.</li>
+        <li>Interview coordination.</li>
+        <li>Interview and selection support.</li>
+        <li>Reference checks.</li>
+        <li>Offer and onboarding support.</li>
+      </ul>
+
+      <div class="sub-heading">4.4 Employee Onboarding and Offboarding</div>
+      <p>We will establish structured processes to ensure employees have a positive experience when joining or leaving the organisation.</p>
+
+      <p><strong>Onboarding</strong></p>
+      <ul>
+        <li>Preparation of employment documentation.</li>
+        <li>New employee orientation.</li>
+        <li>HR induction.</li>
+        <li>Introduction to policies and organisational culture.</li>
+        <li>Probation management.</li>
+        <li>Onboarding checklists.</li>
+      </ul>
+
+      <p><strong>Offboarding</strong></p>
+      <ul>
+        <li>Resignation and termination processes.</li>
+        <li>Exit interviews.</li>
+        <li>Clearance procedures.</li>
+        <li>Final documentation.</li>
+        <li>Employee records updates.</li>
+        <li>Exit analysis and recommendations.</li>
+      </ul>
+
+      <div class="sub-heading">4.5 Performance Management</div>
+      <p>We will assist Company XYZ to establish a performance management framework that promotes accountability, productivity and continuous improvement.</p>
+      <p>Services will include:</p>
+      <ul>
+        <li>Development of performance management guidelines.</li>
+        <li>Setting of objectives and Key Performance Indicators (KPIs).</li>
+        <li>Performance review processes.</li>
+        <li>Coaching managers on performance conversations.</li>
+        <li>Probation assessments.</li>
+        <li>Performance improvement plans.</li>
+        <li>Identification of performance gaps.</li>
+        <li>Performance documentation and reporting.</li>
+      </ul>
+
+      <div class="sub-heading">4.6 Employee Relations</div>
+      <p>We will provide professional support in managing employee relations matters fairly, consistently and confidentially.</p>
+      <p>This may include:</p>
+      <ul>
+        <li>Disciplinary processes.</li>
+        <li>Grievances and complaints.</li>
+        <li>Workplace conflict.</li>
+        <li>Investigations.</li>
+        <li>Employee counselling and guidance.</li>
+        <li>Absenteeism and attendance matters.</li>
+        <li>Performance-related employee cases.</li>
+        <li>Workplace conduct issues.</li>
+        <li>Separation processes.</li>
+      </ul>
+      <p>Our approach will emphasise fairness, procedural consistency, confidentiality and compliance with applicable employment requirements.</p>
+
+      <div class="sub-heading">4.7 Learning and Development</div>
+      <p>We will support Company XYZ in developing employee capability through structured learning and development interventions.</p>
+      <p>Services may include:</p>
+      <ul>
+        <li>Training needs analysis.</li>
+        <li>Development of annual training plans.</li>
+        <li>Identification of training providers.</li>
+        <li>Leadership development.</li>
+        <li>Supervisory skills.</li>
+        <li>Customer service.</li>
+        <li>Communication skills.</li>
+        <li>Team effectiveness.</li>
+        <li>Performance management.</li>
+        <li>Workplace ethics and professionalism.</li>
+        <li>Career development.</li>
+        <li>Coaching and mentoring.</li>
+      </ul>
+
+      <div class="sub-heading">4.8 Compensation and Benefits</div>
+      <p>We will provide advisory support on employee remuneration and benefits, including:</p>
+      <ul>
+        <li>Salary structure review.</li>
+        <li>Job grading and evaluation support.</li>
+        <li>Salary benchmarking.</li>
+        <li>Internal equity reviews.</li>
+        <li>Benefits review.</li>
+        <li>Reward and recognition.</li>
+        <li>Salary review processes.</li>
+        <li>Development of appropriate compensation frameworks.</li>
+      </ul>
+
+      <div class="sub-heading">4.9 HR Compliance</div>
+      <p>We will support Company XYZ in strengthening compliance with applicable employment laws, regulations and HR best practices.</p>
+      <p>This may include review of:</p>
+      <ul>
+        <li>Employment contracts.</li>
+        <li>Statutory obligations.</li>
+        <li>Working hours and leave practices.</li>
+        <li>Employee records.</li>
+        <li>Disciplinary procedures.</li>
+        <li>Termination and separation processes.</li>
+        <li>Workplace policies.</li>
+        <li>Employee rights and obligations.</li>
+      </ul>
+      <p>Where specialist legal advice is required, appropriate legal professionals may be recommended.</p>
+
+      <div class="sub-heading">4.10 Employee Engagement and Organisational Culture</div>
+      <p>We will support initiatives designed to build an engaged, productive and values-driven workforce.</p>
+      <p>Possible interventions include:</p>
+      <ul>
+        <li>Employee engagement surveys.</li>
+        <li>Employee feedback mechanisms.</li>
+        <li>Culture assessment.</li>
+        <li>Team-building interventions.</li>
+        <li>Employee recognition programmes.</li>
+        <li>Internal communication initiatives.</li>
+        <li>Employee wellbeing initiatives.</li>
+        <li>Values and culture alignment.</li>
+        <li>Management-employee engagement forums.</li>
+      </ul>
+
+      <div class="sub-heading">4.11 HR Administration and Records Management</div>
+      <p>We can provide ongoing support to ensure that HR records and processes are properly maintained.</p>
+      <p>This includes:</p>
+      <ul>
+        <li>Employee master records.</li>
+        <li>Personnel files.</li>
+        <li>Leave records.</li>
+        <li>Contracts and HR documentation.</li>
+        <li>HR correspondence.</li>
+        <li>HR reports.</li>
+        <li>Staff movement records.</li>
+        <li>Confidential employee information management.</li>
+      </ul>
+
+      <div class="sub-heading">4.12 HR Advisory and Management Support</div>
+      <p>Management will have access to professional HR advice on day-to-day and strategic people matters.</p>
+      <p>We will advise management on:</p>
+      <ul>
+        <li>People management.</li>
+        <li>Employee relations.</li>
+        <li>Performance issues.</li>
+        <li>Recruitment decisions.</li>
+        <li>Organisational changes.</li>
+        <li>HR policies.</li>
+        <li>Employee engagement.</li>
+        <li>Talent management.</li>
+        <li>Workplace conflict.</li>
+        <li>HR risks and appropriate interventions.</li>
+      </ul>
+    </div>
+
+    <!-- Section 5 -->
+    <div class="section-block">
+      <div class="section-heading">5. PROPOSED SERVICE DELIVERY MODEL</div>
+      <p>We propose a flexible HR partnership model based on Company XYZ's needs.</p>
+
+      <p><strong>Option 1: Retainer-Based HR Support</strong></p>
+      <p>Under this model, we provide ongoing HR advisory and operational support for an agreed monthly retainer.</p>
+      <p>This may include:</p>
+      <ul>
+        <li>Scheduled HR support days.</li>
+        <li>Management advisory services.</li>
+        <li>Employee relations support.</li>
+        <li>HR documentation.</li>
+        <li>Policy support.</li>
+        <li>Recruitment assistance.</li>
+        <li>Performance management support.</li>
+        <li>Monthly HR reporting.</li>
+      </ul>
+
+      <p><strong>Option 2: Project-Based HR Services</strong></p>
+      <p>Company XYZ may engage us for specific HR projects, such as:</p>
+      <ul>
+        <li>HR audit.</li>
+        <li>Policy development.</li>
+        <li>Salary review.</li>
+        <li>Job evaluation.</li>
+        <li>Performance management implementation.</li>
+        <li>Recruitment projects.</li>
+        <li>Employee engagement survey.</li>
+        <li>Organisation restructuring.</li>
+        <li>Training programmes.</li>
+      </ul>
+
+      <p><strong>Option 3: Comprehensive Outsourced HR</strong></p>
+      <p>Under this arrangement, we act as an extension of Company XYZ's HR function and provide comprehensive HR support covering the employee lifecycle.</p>
+      <p>The final service model will be agreed based on the Company's requirements.</p>
+    </div>
+
+    <!-- Section 6 -->
+    <div class="section-block">
+      <div class="section-heading">6. PROPOSED IMPLEMENTATION APPROACH</div>
+      <p><strong>Phase 1: HR Diagnostic</strong><br/>Conduct an initial assessment of the Company's current HR practices, systems, policies and workforce.</p>
+      <p><strong>Phase 2: HR Strategy and Prioritisation</strong><br/>Develop a practical HR action plan based on identified gaps and business priorities.</p>
+      <p><strong>Phase 3: Implementation</strong><br/>Implement agreed HR interventions, policies, systems and processes.</p>
+      <p><strong>Phase 4: Management Support</strong><br/>Provide ongoing HR advisory and operational support to management and employees.</p>
+      <p><strong>Phase 5: Monitoring and Reporting</strong><br/>Provide regular reports on key HR activities, risks, workforce trends and recommended interventions.</p>
+    </div>
+
+    <!-- Section 7 -->
+    <div class="section-block">
+      <div class="section-heading">7. KEY DELIVERABLES</div>
+      <p>Depending on the agreed scope of work, deliverables may include:</p>
+      <ul>
+        <li>HR audit report.</li>
+        <li>HR action plan.</li>
+        <li>HR policies and employee handbook.</li>
+        <li>Updated employment documentation.</li>
+        <li>Job descriptions.</li>
+        <li>Recruitment and onboarding processes.</li>
+        <li>Performance management framework.</li>
+        <li>Training and development plan.</li>
+        <li>Employee relations procedures.</li>
+        <li>HR compliance checklist.</li>
+        <li>HR records framework.</li>
+        <li>Employee engagement initiatives.</li>
+        <li>Monthly/quarterly HR reports.</li>
+        <li>Management HR advisory support.</li>
+      </ul>
+    </div>
+
+    <!-- Section 8 -->
+    <div class="section-block">
+      <div class="section-heading">8. EXPECTED BENEFITS TO COMPANY XYZ</div>
+      <p>Engaging our HR services will enable Company XYZ to:</p>
+      <ul>
+        <li>Access professional HR expertise without the full cost of maintaining a large HR function.</li>
+        <li>Strengthen HR systems and processes.</li>
+        <li>Reduce employment and compliance risks.</li>
+        <li>Improve employee performance and accountability.</li>
+        <li>Improve recruitment and retention.</li>
+        <li>Enhance employee engagement.</li>
+        <li>Strengthen management capability.</li>
+        <li>Develop a positive organisational culture.</li>
+        <li>Improve employee experience.</li>
+        <li>Make better people-related decisions.</li>
+        <li>Align HR practices with business objectives.</li>
+      </ul>
+    </div>
+
+    <!-- Section 9 -->
+    <div class="section-block">
+      <div class="section-heading">9. CONFIDENTIALITY AND PROFESSIONAL ETHICS</div>
+      <p>We recognise that HR work involves highly confidential employee and organisational information.</p>
+      <p>All information accessed during the engagement will be treated with the highest level of confidentiality and professionalism.</p>
+      <p>We will maintain appropriate safeguards relating to employee information and will operate in accordance with applicable professional, ethical and data protection requirements.</p>
+    </div>
+
+    <!-- Section 10 -->
+    <div class="section-block">
+      <div class="section-heading">10. REPORTING AND COMMUNICATION</div>
+      <p>We will maintain regular communication with the Company's designated management representative.</p>
+      <p>Depending on the agreed engagement model, reporting may include:</p>
+      <ul>
+        <li>Monthly HR activity reports.</li>
+        <li>Workforce reports.</li>
+        <li>Recruitment updates.</li>
+        <li>Employee relations updates.</li>
+        <li>Performance management reports.</li>
+        <li>HR risk updates.</li>
+        <li>Recommendations for management action.</li>
+      </ul>
+      <p>Urgent or sensitive HR matters will be escalated promptly.</p>
+    </div>
+
+    <!-- Section 11 -->
+    <div class="section-block full-width">
+      <div class="section-heading">11. PROFESSIONAL FEES</div>
+      <p>Our fees will depend on the scope, frequency and complexity of the services required.</p>
+      <div class="sub-heading">Proposed Fee Structure</div>
+      <table>
+        <thead>
+          <tr>
+            <th>Service</th>
+            <th>Proposed Fee</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Initial HR Audit/Diagnostic</td>
+            <td>KSh (………)</td>
+          </tr>
+          <tr>
+            <td>Monthly HR Retainer</td>
+            <td>KSh (,,,,,,,,,,,,)</td>
+          </tr>
+          <tr>
+            <td>HR Policy Development</td>
+            <td>KSh (……….)</td>
+          </tr>
+          <tr>
+            <td>Recruitment Services</td>
+            <td>KSh (……….)</td>
+          </tr>
+          <tr>
+            <td>Performance Management Project</td>
+            <td>KSh (……….)</td>
+          </tr>
+          <tr>
+            <td>Training & Development</td>
+            <td>KSh (……….)</td>
+          </tr>
+          <tr>
+            <td>Other HR Projects</td>
+            <td>By quotation</td>
+          </tr>
+        </tbody>
+      </table>
+      <p style="margin-top: 10px;">A detailed quotation can be provided following confirmation of Company XYZ's specific HR requirements.</p>
+    </div>
+
+    <!-- Section 12 -->
+    <div class="section-block">
+      <div class="section-heading">12. PROPOSED ENGAGEMENT PERIOD</div>
+      <p>We propose an initial engagement period of six months, subject to review and renewal by mutual agreement.</p>
+      <p>The initial period will allow sufficient time to assess existing HR practices, implement priority interventions and demonstrate measurable value to the organisation.</p>
+    </div>
+
+    <!-- Section 13 -->
+    <div class="section-block">
+      <div class="section-heading">13. WHY PARTNER WITH US</div>
+      <p>Our approach to HR is based on four principles:</p>
+      <p><strong>Strategic</strong> – We align HR solutions with business objectives.</p>
+      <p><strong>Practical</strong> – We provide solutions that can be implemented effectively within the Company's operating environment.</p>
+      <p><strong>People-Centred</strong> – We recognise that engaged and well-supported employees contribute directly to organisational success.</p>
+      <p><strong>Results-Oriented</strong> – We focus on measurable improvements in performance, compliance, employee experience and organisational effectiveness.</p>
+      <p>We aim to become a trusted HR partner to Company XYZ, providing management with the expertise and support required to effectively manage its people and achieve its business objectives.</p>
+    </div>
+
+    <!-- Section 14 -->
+    <div class="section-block full-width">
+      <div class="section-heading">14. CONCLUSION</div>
+      <p>We appreciate the opportunity to submit this proposal to Company XYZ.</p>
+      <p>We believe that effective HR management should be a strategic enabler of business success. Through this partnership, we will support Company XYZ in building robust HR systems, developing its people, strengthening organisational culture and managing people-related risks effectively.</p>
+      <p>We look forward to the opportunity to meet with management, understand the Company's priorities in greater detail and agree on a customised HR service package that delivers meaningful and sustainable value.</p>
+      <p>Thank you for considering our proposal.</p>
+      <p style="margin-top: 10px;">Yours faithfully,</p>
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <div class="author">Joseline Wafula</div>
+    <div class="author-company">Valcrest Consultant</div>
+    <div class="contact">+254 119 730 803</div>
+  </div>
+</div>
+
+</body>
+</html>
